@@ -2,11 +2,24 @@ const container = document.getElementById("container");
 const grid = document.createElement("div");
 grid.setAttribute("id", "grid");
 
-const darken = (evt) => {
-    const elem = evt.target;
-    elem.style.backgroundColor = "#383838";
+// random number generator helper function
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
 
+// darken to random color
+const darken = (evt) => {
+    const elem = evt.target;
+    elem.style.backgroundColor = `rgb(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)})`;
+}
+
+// darken to darker grey
+// const darken = (evt) => {
+//     const elem = evt.target;
+//     elem.style.backgroundColor = `rgb(56,56,56)`;
+// }
+
+// function for generating grids of different sizes
 const generateGrid = () => {
     grid.replaceChildren();
     let count = 101;
@@ -32,20 +45,14 @@ const generateGrid = () => {
         }
         grid.appendChild(row);
     }
-
-
-    // // resize squares
-    // const squares = document.querySelectorAll("#square");
-    // squares.forEach((elem) => {
-    //     elem.style.height = squareSize;
-    //     elem.style.width = squareSize;
-    // });
 }
 
+// add resize button and attach its event
 const btn = document.createElement("button");
 btn.textContent = "Resize";
 btn.addEventListener("click", generateGrid);
 container.append(btn, grid);
+
 
 // generate the initial grid
 for (let i = 0; i < 16; i++) {
@@ -58,7 +65,7 @@ for (let i = 0; i < 16; i++) {
         const square = document.createElement("div");
         square.setAttribute("id", "square");
         square.setAttribute("style", `height: ${960/16}px`);
-        square.addEventListener("mouseover", darken)
+        square.addEventListener("mouseover", darken);
         row.appendChild(square);
     }
     grid.appendChild(row);

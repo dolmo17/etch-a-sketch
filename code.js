@@ -57,7 +57,7 @@ for (let i = 0; i < 16; i++) {
         // generate and attach the squares to the j-th row
         const square = document.createElement("div");
         square.setAttribute("id", "square");
-        square.setAttribute("style", "height: " + toString(960/16) + "px");
+        square.setAttribute("style", `height: ${960/16}px`);
         square.addEventListener("mouseover", darken)
         row.appendChild(square);
     }

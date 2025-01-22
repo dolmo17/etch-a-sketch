@@ -1,8 +1,24 @@
 #grid {
+    width: 960px;
+    height: 960px;
+    grid-template-columns:  repeat(auto-fill, minmax(0, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(0, 1fr));
+    border: 1px solid black;
     display: flex;
+    flex-direction: row;
 }
 
 #square {
     background-color: rgb(128, 128, 128);
     border: 1px solid #afafaf;
+    box-sizing: border-box;
+    min-height: 9.6px;
 }
+
+#row {
+    width: 960px;
+}
+
+
+
+
